@@ -8,9 +8,10 @@ gem 'bootstrap-datepicker-rails'
 gem "numbers_and_words", "~> 0.10.0"
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
-gem 'sqlite3', '1.3.7'
+
 
 group :development do
+  gem 'sqlite3', '1.3.7'
   gem 'capistrano', '2.5.4'
 end
 
@@ -39,7 +40,7 @@ group :doc do
 end
 
 group :production do
-    #gem 'pg'
+    gem 'pg'
     #gem 'mysql2'
     gem 'rails_12factor', '0.0.2'
 end
