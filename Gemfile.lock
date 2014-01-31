@@ -100,7 +100,7 @@ GEM
     numbers_and_words (0.10.0)
       activesupport
       i18n
-    pg (0.17.1)
+    pg (0.15.1)
     polyglot (0.3.3)
     pry (0.9.12.6)
       coderay (~> 1.0)
@@ -201,7 +201,7 @@ DEPENDENCIES
   jbuilder (= 1.0.1)
   jquery-rails (= 2.2.1)
   numbers_and_words (~> 0.10.0)
-  pg
+  pg (= 0.15.1)
   rails (= 4.0.2)
   rails_12factor (= 0.0.2)
   rspec-rails (= 2.13.0)
