@@ -1,0 +1,21 @@
+<% if signed_in? %>
+  <script type="text/javascript">
+    window.location.href="/show"  // put your correct path in a string here
+  </script>
+<% else %>
+	<h1 class="text-center">User Login</h1>
+	<div class="row">
+		<div class="span6 offset3">
+			<%= form_for(:session, url: sessions_path) do |f| %>
+
+				<%= f.label :email %>
+				<%= f.text_field :email %>
+
+				<%= f.label :password %>
+				<%= f.password_field :password %>
+
+				<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+			<% end %>
+		</div>
+	</div>
+<% end %>
