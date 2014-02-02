@@ -1,7 +1,7 @@
 <header class="navbar navbar-fixed-top navbar-inverse">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="/sessions/new">Manageware</a>
+      <a class="brand" href="/signup">Manageware</a>
       <nav>
         <ul class="nav pull-right">
            <% if signed_in? %> 
@@ -10,8 +10,8 @@
                 Account <b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
-                <li><%= link_to "Profile", '#' %></li>
-                <li><%= link_to "Settings", '#' %></li>
+                <li><%= link_to "Customer Index", customers_path %></li>
+                <li><%= link_to "User Index", '#' %></li>
                 <li class="divider"></li>
                 <li>
                   <%= link_to "Sign out", signout_path, method: "delete" %>

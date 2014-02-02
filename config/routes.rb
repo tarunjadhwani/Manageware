@@ -12,8 +12,9 @@ Manageware::Application.routes.draw do
   match '/show',  			to: 'users#show',          	via: 'get'
   
 
-  match '/signin' ,  		to: 'sessions#new', 		via: 'get'
+  match '/signin' ,  		to: 'sessions#new', 		    via: 'get'
   match '/signout',  		to: 'sessions#destroy',     via: 'delete'
 
-  match "/new_customer", 	to: 'customers#new',		via: 'get'
+  match "/new_customer", 	to: 'customers#new',		  via: 'get'
+  match '/show_customer', to: 'customers#show',     via: 'get'
 end
