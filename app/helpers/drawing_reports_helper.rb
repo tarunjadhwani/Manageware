@@ -1,0 +1,2 @@
+module DrawingReportsHelper
+end

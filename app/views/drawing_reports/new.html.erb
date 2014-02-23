@@ -1,0 +1,26 @@
+
+<h1 class="text-center">Create Drawing Report</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [@customer, @drawing_report], :url =>   customer_drawing_reports_path(@customer, @drawing_reports) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %> 
+   
+      <%= f.label :revision_no %>
+      <%= f.select :revision_no, options_for_select(['N/A', '1', '2', '3', '4', '5', '6']) %>
+
+      <%= f.label :list_of_drawing %>
+      <%= f.text_field :list_of_drawing %>
+
+      <%= f.label :issue_drawing %>
+      <%= f.select :revision_no, options_for_select(['Architect','Contractor']) %>
+
+      <%= f.label :date_completed %>
+      <%= f.date_field :date_completed, placeholder: "dd/mm/yyyy" %>
+
+      <%= f.label :copy %>
+      <%= f.check_box :copy %> <br /> <br />
+
+      <%= f.submit "Submit Details", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

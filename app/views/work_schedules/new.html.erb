@@ -1,0 +1,23 @@
+
+<h1 class="text-center">Create New Task</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [@customer, @work_schedule], :url =>   customer_work_schedules_path(@customer, @work_schedules) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %> 
+
+      <%= f.label :task_work %>
+      <%= f.text_field :task_work %>
+
+      <%= f.label :duration %>
+      <%= f.text_field :duration %>
+
+      <%= f.label :start_date %>
+      <%= f.date_field :start_date, placeholder: "dd/mm/yyyy" %>
+
+      <%= f.label :finish_date %>
+      <%= f.date_field :finish_date, placeholder: "dd/mm/yyyy" %>
+
+      <%= f.submit "Submit Details", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

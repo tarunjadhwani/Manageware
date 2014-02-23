@@ -1,0 +1,26 @@
+<div class="span3">
+  <div class="well" style="padding: 8px 0;">
+    <ul id="store-sidebar" class="nav nav-list">
+      <li class="nav-header">Store Functions</li>
+			<li>
+				<%= link_to '<i class="icon-list"></i> Summary'.html_safe, store_path(store) %>
+			</li>
+			<li>
+				<%= link_to '<i class="icon-plus-sign"></i> Add Closing Stock'.html_safe, store.has_entered_stock_on?(@left_on || Date.today) ? edit_store_bulk_stocks_path(store) : new_store_bulk_stock_path(store) %>
+			</li>
+			<li>
+				<%= link_to '<i class="icon-plus-sign"></i> Add Trading Supplies'.html_safe, store.has_entered_supplies_on?(@supplied_on || Date.today) ? edit_store_bulk_supplies_path(store) : new_store_bulk_supply_path(store) %>
+			</li>
+			<li>
+				<%= link_to '<i class="icon-tasks"></i> Journal Entries'.html_safe, store_journal_entries_path(store) %>
+			</li>
+			<li>
+				<%= link_to "&nbsp;$&nbsp;&nbsp;Cash Entry".html_safe, store.has_entered_denominations_on?(@made_on || Date.today) ? edit_store_cash_entries_path(store) : new_store_cash_entries_path(store) %>
+			</li>
+			<li class="divider"></li>
+			<li>
+				<%= link_to '<i class="icon-off"></i> Log Out'.html_safe, logout_url, method: :delete %>
+			</li>
+    </ul>
+  </div> <!-- /well -->
+</div>

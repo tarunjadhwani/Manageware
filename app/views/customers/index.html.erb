@@ -14,26 +14,29 @@
 		    <th>Customer No.</th>
 		    <th>Customer Name</th>
 		    <th>Company</th>
+		    <th>Delete Link</th>
 	  	</tr>
 
 		<% @customer.each do |customer| %>
 		    <tr>
 		      <td><%= customer.id %></td>
-		      <td><%= customer.name %></td>
+		      <td><%= link_to customer.name, customer_path(:id => customer.id) %></td>
 		      <td><%= customer.company %></td>
+		      <td><%= link_to 'Delete', customer_path(:id => customer.id),
+            :confirm => 'Are you sure you want to delete the customer?', :method => :delete %></td>
 		    </tr>
 	    <% end %>
 	</table>
 	<div class="pagination pagination-centered">
-	<ul>
-    <li><a href="#">Prev</a></li>
-    <li><a href="#">1</a></li>
-    <li><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
+		<ul>
+		    <li><a href="#">Prev</a></li>
+		    <li><a href="#">1</a></li>
+		    <li><a href="#">2</a></li>
+		    <li><a href="#">3</a></li>
+		    <li><a href="#">4</a></li>
+		    <li><a href="#">5</a></li>
+		    <li><a href="#">Next</a></li>
+	  	</ul>
 	</div>
 
 </div>

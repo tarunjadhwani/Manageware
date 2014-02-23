@@ -47,6 +47,10 @@ h1 {
   margin-bottom: 30px;
 }
 
+#pull {
+  text-align: center;
+}
+
 h2 {
   font-size: 1.2em;
   letter-spacing: -1px;
@@ -84,7 +88,10 @@ p {
 
 footer {
   margin-top: 45px;
-  padding-top: 5px;
+  position: relative;
+  height: 45px;
+  bottom: 0;
+  width: 100%;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
   a {
@@ -178,6 +185,20 @@ aside {
 
 /* forms */
 
+.btn-width{
+  width: 150px;
+}
+.btn-width-big{
+  width: 400px;
+}
+.ex
+{
+  width:400px;
+  padding:10px;
+  border:1px solid gray;
+  margin:auto;
+}
+
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
@@ -185,6 +206,10 @@ input, textarea, select, .uneditable-input {
   padding: 10px;
   margin-bottom: 15px;
   @include box_sizing;
+}
+
+.centerize { 
+    text-align: center;
 }
 
 input {
@@ -204,9 +229,22 @@ input {
   @extend .error;
 }
 
-/* Users index */
+/* index pages */
 
 .users {
+  list-style: none;
+  margin: 0;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+  }
+}
+
+.customers {
   list-style: none;
   margin: 0;
   li {

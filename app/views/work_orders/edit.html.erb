@@ -1,0 +1,19 @@
+<h1 class="text-center">Edit Work Order</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [@customer, @customer.work_order], :url =>   work_order_path do |f| %>
+    <%= render 'shared/error_messages', object: f.object %> 
+   
+      <%= f.label :area %>
+      <%= f.text_field :area %>
+
+      <%= f.label :payment_type %>
+      <%= f.select  :payment_type, options_for_select(['Lumsum', 'Rate Per Square ft', 'Percentage']) %>
+
+      <%= f.label :amount %>
+      <%= f.text_field :amount %>
+
+      <%= f.submit "Submit Details", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

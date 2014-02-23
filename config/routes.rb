@@ -2,8 +2,20 @@ Manageware::Application.routes.draw do
   
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
-  resources :customers
 
+  resources :customers do
+    resources :work_orders, only: [:new, :create]
+    resources :drawing_reports, only: [:new, :create, :index]
+    resources :payment_schedules, only: [:new, :create, :index]
+    resources :site_visits, only: [:new, :create, :index]
+    resources :work_schedules, only: [:new, :create, :index]
+  end
+
+  resources :work_orders, only: [:edit, :update]
+  resources :drawing_reports, only: [:edit, :update]
+  resources :payment_schedules, only: [:edit, :update]
+  resources :site_visits, only: [:edit, :update]
+  resources :work_schedules, only: [:edit, :update]
 
   root 'sessions#new'
 

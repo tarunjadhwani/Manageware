@@ -1,0 +1,19 @@
+<h1 class="text-center">Create Work Order</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for [@customer, @customer.build_work_order], :url =>   show_customer_path do |f| %>
+    <%= render 'shared/error_messages', object: f.object %> 
+   
+      <%= f.label :area %>
+      <%= f.text_field :area %>
+
+      <%= f.label :payment_type %>
+      <%= f.text_field :payment_type %>
+
+      <%= f.label :amount %>
+      <%= f.text_field :amount %>
+
+      <%= f.submit "Submit Details", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

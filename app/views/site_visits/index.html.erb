@@ -1,0 +1,26 @@
+<div class="container">
+	<h1>Listing Payment Schedules</h1>
+
+		<form class="form-search">
+			<%= link_to 'New Payment', new_customer_payment_schedule_path, :class => "btn btn-primary pull-left" %><br /><br />
+		</form>
+	
+
+	<table class="table table-hover">
+
+	  	<tr>
+		    <th>Sc No.</th>
+		    <th>Work Completed</th>
+		    <th>Date</th>
+	  	</tr>
+	  	
+		<% @customer.payment_schedules.each do |c| %>
+		    <tr>
+		      <td><%= c.id %></td>
+		      <td><%= c.work_completed %></td>
+		      <td><%= c.visit-date %></td>
+		    </tr>
+	    <% end %>
+	</table>
+
+</div>

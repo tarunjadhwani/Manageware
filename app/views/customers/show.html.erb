@@ -1,30 +1,21 @@
 <% provide(:title, @customer.name) %>
-<h1><%= @customer.name %></h1>
+<small>Customer No: <%= @customer.id %></small>
+<small class="pull-right">Customer Name: <%= @customer.name %></small>
 
 
-<div class="accordion" id="accordion2">
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-        Collapsible Group Item #1
-      </a>
+<div class="container">
+  <h1 id="pull">Customer Profile</h1>
+  <div class="centerize">
+    <div class="ex"></br>
+      <%= link_to "Quotation", "#", class: "btn btn-primary btn-width" %></br></br>
+      <%= link_to "Work Order", edit_work_order_path, class: "btn btn-primary btn-width" %></br></br>
+      <%= link_to "Work Schedule", customer_work_schedules_path(@customer, @work_schedules), class: "btn btn-primary btn-width" %></br></br>      
+      <%= link_to "Drawing Report", customer_drawing_reports_path(@customer, @drawing_reports), class: "btn btn-primary btn-width" %></br></br>
+      <%= link_to "Site visits", customer_site_visits_path(@customer, @site_visits), class: "btn btn-primary btn-width" %></br></br>
+      <%= link_to "Payment Schedule", customer_payment_schedules_path(@customer, @payment_schedules), class: "btn btn-primary btn-width" %></br></br>
     </div>
-    <div id="collapseOne" class="accordion-body collapse in">
-      <div class="accordion-inner">
-        Anim pariatur cliche...
-      </div>
-    </div>
-  </div>
-  <div class="accordion-group">
-    <div class="accordion-heading">
-      <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-        Collapsible Group Item #2
-      </a>
-    </div>
-    <div id="collapseTwo" class="accordion-body collapse">
-      <div class="accordion-inner">
-        Anim pariatur cliche...
-      </div>
-    </div>
+    </br>
+    <%= link_to "Download Overall PDF", "#", class: "btn btn-large btn-primary btn-width-big" %>
   </div>
 </div>
+
