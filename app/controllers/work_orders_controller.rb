@@ -16,12 +16,12 @@ class WorkOrdersController < ApplicationController
 	end
 
 	def edit
+		@work_order = @customer.work_order(params[:id])
 	end
 
 	def update
-		@work_order = @customer.work_order.find(params[:id])
 		if  @customer.work_order.update_attributes(work_order_params)
-			redirect_to show_customer_path
+			redirect_to customer_path
 			flash[:success] = "Work Order updated"
 		else
 			render 'edit'

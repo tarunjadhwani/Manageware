@@ -1,7 +1,8 @@
-<h1 class="text-center">Edit Work Order</h1>
+<%= render 'layouts/customer_header' %>
+<h1 class="text-center">Work Order details</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for [@customer, @customer.work_order], :url =>   work_order_path do |f| %>
+    <%= form_for [@customer, @customer.work_order], :url =>   work_order_path(@customer) do |f| %>
     <%= render 'shared/error_messages', object: f.object %> 
    
       <%= f.label :area %>
@@ -13,7 +14,8 @@
       <%= f.label :amount %>
       <%= f.text_field :amount %>
 
-      <%= f.submit "Submit Details", class: "btn btn-large btn-primary" %>
+      <%= link_to "Cancel", customer_path, class: "btn btn-large btn-primary btn-width-small" %>
+      <%= f.submit "Submit Details", class: "btn btn-large btn-primary btn-width-small pull-right" %>
     <% end %>
   </div>
 </div>

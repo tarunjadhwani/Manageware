@@ -1,10 +1,9 @@
-<%= render 'layouts/customer_header' %>
-<h1 class="text-center">Create Drawing Report</h1>
+<h1 class="text-center">Edit Drawing Report</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for [@customer, @drawing_report], :url =>   customer_drawing_reports_path(@customer, @drawing_reports) do |f| %>
+    <%= form_for [@customer, @drawing_report], :url => drawing_report_path do |f| %>
     <%= render 'shared/error_messages', object: f.object %> 
-   
+
       <%= f.label :revision_no %>
       <%= f.select :revision_no, options_for_select(['N/A', '1', '2', '3', '4', '5', '6']) %>
 
@@ -20,7 +19,7 @@
       <%= f.label :copy %>
       <%= f.check_box :copy %> <br /> <br />
 
-      <%= link_to "Cancel", customer_drawing_reports_path(@customer), class: "btn btn-large btn-primary btn-width-small" %>
+      <%= link_to "Cancel", customer_path(@drawing_report.customer_id), class: "btn btn-large btn-primary btn-width-small" %>
       <%= f.submit "Submit Details", class: "btn btn-large btn-primary btn-width-small pull-right" %>
     <% end %>
   </div>

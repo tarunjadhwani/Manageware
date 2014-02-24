@@ -1,5 +1,5 @@
 class PaymentSchedulesController < ApplicationController
-	before_filter :get_customer
+	before_filter :get_customer, :except => [:edit, :update]
 
 	def new
 		@payment_schedule = PaymentSchedule.new
@@ -15,17 +15,18 @@ class PaymentSchedulesController < ApplicationController
 		end
 	end
 
-	def edit
-	end
-
 	def index
 		@payment_schedules = @customer.payment_schedules.all
 	end
 
+	def edit
+		@payment_schedule = PaymentSchedule.find(params[:id])
+	end
+
 	def update
-		@payment_schedule = @customer.payment_schedule.find(params[:id])
-		if @customer.payment_schedule.update_attributes(payment_schedule_params)
-			redirect_to customer_payment_schedules_path
+		@payment_schedule = PaymentSchedule.find(params[:id])
+		if @payment_schedule.update_attributes(payment_schedule_params)
+			redirect_to customer_payment_schedules_path(@payment_schedule.customer_id)
 			flash[:success] = "Payment Schedule updated"
 		else
 			render 'edit'

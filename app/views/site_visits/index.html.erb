@@ -1,8 +1,10 @@
+<%= render 'layouts/customer_header' %>
 <div class="container">
-	<h1>Listing Payment Schedules</h1>
+	<h1 class="text-center">Site Visits</h1>
 
 		<form class="form-search">
-			<%= link_to 'New Payment', new_customer_payment_schedule_path, :class => "btn btn-primary pull-left" %><br /><br />
+			<%= link_to 'New Site Visit', new_customer_site_visit_path, :class => "btn btn-primary btn-width-small pull-left" %>
+			<%= link_to "<--Customer profile ", customer_path(@customer), :class => "pull-right" %><br /><br />
 		</form>
 	
 
@@ -14,11 +16,11 @@
 		    <th>Date</th>
 	  	</tr>
 	  	
-		<% @customer.payment_schedules.each do |c| %>
+		<% @customer.site_visits.each do |c| %>
 		    <tr>
 		      <td><%= c.id %></td>
-		      <td><%= c.work_completed %></td>
-		      <td><%= c.visit-date %></td>
+		      <td><%= link_to c.work_completed, edit_site_visit_path(:id => c.id) %></td>
+		      <td><%= c.visit_date %></td>
 		    </tr>
 	    <% end %>
 	</table>

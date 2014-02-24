@@ -1,10 +1,9 @@
-<%= render 'layouts/customer_header' %>
-<h1 class="text-center">New Payment</h1>
+<h1 class="text-center">Edit Payment</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for [@customer, @payment_schedule], :url =>   customer_payment_schedules_path(@customer, @payment_schedules) do |f| %>
+    <%= form_for [@customer, @payment_schedule], :url => payment_schedule_path do |f| %>
     <%= render 'shared/error_messages', object: f.object %> 
-   
+
       <%= f.label :status %>
       <%= f.select :status, options_for_select(['Advance', '1st Installment', '2nd Installment', '3rd Installment', '4th Installment', '5th Installment', '6th Installment']) %>
 
@@ -14,7 +13,7 @@
       <%= f.label :payment_date %>
       <%= f.date_field :payment_date, placeholder: "dd/mm/yyyy" %>
 
-      <%= link_to "Cancel", customer_payment_schedules_path(@customer), class: "btn btn-large btn-primary btn-width-small" %>
+      <%= link_to "Cancel", customer_payment_schedules_path(@payment_schedule.customer_id), class: "btn btn-large btn-primary btn-width-small" %>
       <%= f.submit "Submit Details", class: "btn btn-large btn-primary btn-width-small pull-right" %>
     <% end %>
   </div>

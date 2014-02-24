@@ -1,10 +1,10 @@
+<%= render 'layouts/customer_header' %>
 <div class="container">
-	<h1>Listing Drawing Reports</h1>
+	<h1 class="text-center">Listing Drawing Reports</h1>
 
 		<form class="form-search">
-			<input type="text" class="input-medium search-query">
-			<button type="submit" class="btn">Search Drawing Reports</button>
-			<%= link_to 'New Drawing Report', new_customer_drawing_report_path, :class => "btn btn-primary pull-right" %>
+			<%= link_to 'New Drawing Report', new_customer_drawing_report_path, :class => "btn btn-primary btn-width pull-left" %>
+			<%= link_to "<--Customer profile ", customer_path(@customer), :class => "pull-right" %><br /><br />
 		</form>
 	
 
@@ -23,7 +23,7 @@
 		    <tr>
 		      <td><%= c.id %></td>
 		      <td><%= c.revision_no %></td>
-		      <td><%= c.list_of_drawing %></td>
+		      <td><%= link_to c.list_of_drawing, edit_drawing_report_path(:id => c.id) %></td>
 		      <td><%= c.issue_drawing %></td>
 		      <td><%= c.copy %></td>
 		      <td><%= c.date_completed %></td>

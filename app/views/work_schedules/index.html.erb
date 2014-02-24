@@ -1,8 +1,11 @@
+<%= render 'layouts/customer_header' %>
 <div class="container">
-	<h1>Listing Payment Schedules</h1>
+	<h1 class="text-center">Work Schedule</h1>
 
 		<form class="form-search">
-			<%= link_to 'New Payment', new_customer_work_schedule_path, :class => "btn btn-primary pull-left" %><br /><br />
+			<%= link_to 'New Task', new_customer_work_schedule_path, :class => "btn btn-primary pull-left btn-width-small" %>
+			<%= link_to "<--Customer profile ", customer_path(@customer), :class => "pull-right" %>
+			<br /><br />
 		</form>
 	
 
@@ -19,7 +22,7 @@
 		<% @customer.work_schedules.each do |c| %>
 		    <tr>
 		      <td><%= c.id %></td>
-		      <td><%= c.task_work %></td>
+		      <td><%= link_to c.task_work, edit_work_schedule_path(:id => c.id) %></td>
 		      <td><%= pluralize(c.duration, 'Day') %></td>
 		      <td><%= c.start_date %></td>
 		      <td><%= c.finish_date %></td>

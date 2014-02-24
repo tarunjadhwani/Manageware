@@ -1,5 +1,5 @@
 class DrawingReportsController < ApplicationController
-	before_filter :get_customer
+	before_filter :get_customer, :except => [:edit, :update]
 
 	def new
 		@drawing_report = DrawingReport.new
@@ -15,18 +15,19 @@ class DrawingReportsController < ApplicationController
 		end
 	end
 
-	def edit
-	end
-
 	def index
 		@drawing_reports = @customer.drawing_reports.all
 	end
 
+	def edit
+		@drawing_report = DrawingReport.find(params[:id])
+	end
+
 	def update
-		@drawing_report = @customer.drawing_report.find(params[:id])
-		if @customer.drawing_report.update_attributes(drawing_report_params)
-			redirect_to customer_drawing_reports_path
-			flash[:success] = "Drawing Report updated"
+		@drawing_report = DrawingReport.find(params[:id])
+		if @drawing_report.update_attributes(drawing_report_params)
+			redirect_to customer_drawing_reports_path(@drawing_report.customer_id)
+			flash[:success] = "Payment Schedule updated"
 		else
 			render 'edit'
 		end

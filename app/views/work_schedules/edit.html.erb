@@ -1,8 +1,7 @@
-<%= render 'layouts/customer_header' %>
 <h1 class="text-center">Create New Task</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for [@customer, @work_schedule], :url =>   customer_work_schedules_path(@customer, @work_schedules) do |f| %>
+    <%= form_for [@customer, @work_schedule], :url => work_schedule_path do |f| %>
     <%= render 'shared/error_messages', object: f.object %> 
 
       <%= f.label :task_work %>
@@ -17,7 +16,7 @@
       <%= f.label :finish_date %>
       <%= f.date_field :finish_date, placeholder: "dd/mm/yyyy" %>
 
-      <%= link_to "Cancel", customer_work_schedules_path(@customer), class: "btn btn-large btn-primary btn-width-small" %>
+      <%= link_to "Cancel", customer_work_schedules_path(@work_schedule.customer_id), class: "btn btn-large btn-primary btn-width-small" %>
       <%= f.submit "Submit Details", class: "btn btn-large btn-primary btn-width-small pull-right" %>
     <% end %>
   </div>

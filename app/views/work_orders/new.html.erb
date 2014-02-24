@@ -1,3 +1,4 @@
+<%= render 'layouts/customer_header' %>
 <h1 class="text-center">Create Work Order</h1>
 <div class="row">
   <div class="span6 offset3">
@@ -13,7 +14,8 @@
       <%= f.label :amount %>
       <%= f.text_field :amount %>
 
-      <%= f.submit "Submit Details", class: "btn btn-large btn-primary" %>
+      <%= link_to "Cancel", customer_path(@customer), class: "btn btn-large btn-primary btn-width-small" %>
+      <%= f.submit "Submit Details", class: "btn btn-large btn-primary btn-width-small pull-right" %>
     <% end %>
   </div>
 </div>
