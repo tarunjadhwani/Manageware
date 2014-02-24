@@ -1,12 +1,12 @@
 <div class="container">
 	<h1>Listing customers</h1>
 
-		<form class="form-search">
-			<input type="text" class="input-medium search-query">
-			<button type="submit" class="btn">Search Customer</button>
-			<%= link_to 'New customer', new_customer_path, :class => "btn btn-primary pull-right" %>
-		</form>
-	
+	<%= form_tag customers_path, :method => 'get' do %>
+		<%= text_field_tag :search, params[:search], class: "input-medium search-query" %>
+		<%= submit_tag "Search Customer", :name => nil, class: "btn" %>
+		<%= link_to 'New customer', new_customer_path, :class => "btn btn-primary pull-right" %>
+	<% end %>
+
 
 	<table class="table table-hover">
 
@@ -27,16 +27,6 @@
 		    </tr>
 	    <% end %>
 	</table>
-	<div class="pagination pagination-centered">
-		<ul>
-		    <li><a href="#">Prev</a></li>
-		    <li><a href="#">1</a></li>
-		    <li><a href="#">2</a></li>
-		    <li><a href="#">3</a></li>
-		    <li><a href="#">4</a></li>
-		    <li><a href="#">5</a></li>
-		    <li><a href="#">Next</a></li>
-	  	</ul>
-	</div>
+    <%= will_paginate @customer, renderer: BootstrapPagination::Rails %>
 
 </div>

@@ -37,7 +37,7 @@ class CustomersController < ApplicationController
 	end
 
 	def index
-		@customer = Customer.all
+		@customer = Customer.all.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
 	end
 
 	def destroy 

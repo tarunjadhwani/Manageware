@@ -8,6 +8,8 @@ gem 'bootstrap-datepicker-rails'
 gem "numbers_and_words", "~> 0.10.0"
 gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
+gem 'will_paginate', '3.0.4'
+gem 'will_paginate-bootstrap', '0.2.5'
 
 
 group :development do
