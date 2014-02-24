@@ -87,11 +87,10 @@ p {
 /* footer */
 
 footer {
-  margin-top: 45px;
-  position: relative;
-  height: 45px;
+  margin-bottom: 15px;
+  position: absolute;
   bottom: 0;
-  width: 100%;
+  width: 78%;
   border-top: 1px solid $grayMediumLight;
   color: $grayLight;
   a {
