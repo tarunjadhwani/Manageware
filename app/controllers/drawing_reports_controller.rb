@@ -1,4 +1,5 @@
 class DrawingReportsController < ApplicationController
+	require 'will_paginate/array'
 	before_filter :get_customer, :except => [:edit, :update]
 
 	def new
