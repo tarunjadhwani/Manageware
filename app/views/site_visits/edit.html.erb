@@ -1,13 +1,12 @@
 <h1 class="text-center">Create New Task</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for [@customer, @site_visit], :url => site_visit_path do |f| %>
-    <%= render 'shared/error_messages', object: f.object %> 
+    <%= form_for [@customer, @site_visit], :validate => true, :url => site_visit_path do |f| %>
 
-      <%= f.label :work_completed %>
+      <%= f.label :work_completed, "Work Completed:" %>
       <%= f.text_field :work_completed %>
 
-      <%= f.label :visit_date %>
+      <%= f.label :visit_date, "Visit Date:" %>
       <%= f.date_field :visit_date, placeholder: "dd/mm/yyyy" %>
 
       <%= link_to "Cancel", customer_site_visits_path(@site_visit.customer_id), class: "btn btn-large btn-primary btn-width-small" %>

@@ -17,6 +17,10 @@ Manageware::Application.routes.draw do
   resources :site_visits, only: [:edit, :update]
   resources :work_schedules, only: [:edit, :update]
 
+
+  match '/customer_report',     to: 'customers#report',     via: 'get'
+  match '/download_customer',     to: 'customers#download',     via: 'get'
+
   root 'sessions#new'
 
 

@@ -10,6 +10,7 @@ gem 'wkhtmltopdf-binary'
 gem 'wicked_pdf'
 gem 'will_paginate', '3.0.4'
 gem 'will_paginate-bootstrap', '0.2.5'
+gem 'client_side_validations', github: 'bcardarella/client_side_validations', branch: '4-0-beta'
 
 
 group :development do

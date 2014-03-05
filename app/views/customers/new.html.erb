@@ -1,13 +1,12 @@
 <h1 class="text-center">Create New Customer</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for @customer, url: customers_path do |f| %>
-    <%= render 'shared/error_messages', object: f.object %> 
+    <%= form_for @customer, :validate => true, url: customers_path do |f| %>
    
-      <%= f.label :name %>
+      <%= f.label :name, "Name:" %>
       <%= f.text_field :name %>
 
-      <%= f.label :company %>
+      <%= f.label :company, "Company:" %>
       <%= f.text_field :company %>
 
       <%= f.submit "Create new Customer", class: "btn btn-large btn-primary" %>

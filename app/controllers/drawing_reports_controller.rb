@@ -17,11 +17,15 @@ class DrawingReportsController < ApplicationController
 	end
 
 	def index
-		@drawing_reports = @customer.drawing_reports.all.paginate(:per_page => 9, :page => params[:page])
+		@drawing_reports = @customer.drawing_reports.all.paginate(:per_page => 8, :page => params[:page])
 	end
 
 	def edit
 		@drawing_report = DrawingReport.find(params[:id])
+	end
+
+	def report
+		@drawing_reports = @customer.drawing_reports.all.paginate(:per_page => 8, :page => params[:page])
 	end
 
 	def update

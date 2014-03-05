@@ -2,19 +2,19 @@
 <h1 class="text-center">Create New Task</h1>
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for [@customer, @work_schedule], :url =>   customer_work_schedules_path(@customer, @work_schedules) do |f| %>
-    <%= render 'shared/error_messages', object: f.object %> 
+    <%= form_for [@customer, @work_schedule], :validate => true, :url =>   customer_work_schedules_path(@customer, @work_schedules) do |f| %>
 
-      <%= f.label :task_work %>
+
+      <%= f.label :task_work, "Task Work:" %>
       <%= f.text_field :task_work %>
 
-      <%= f.label :duration %>
+      <%= f.label :duration, "Duration:" %>
       <%= f.text_field :duration %>
 
-      <%= f.label :start_date %>
+      <%= f.label :start_date, "Start Date:" %>
       <%= f.date_field :start_date, placeholder: "dd/mm/yyyy" %>
 
-      <%= f.label :finish_date %>
+      <%= f.label :finish_date, "Finish Date:" %>
       <%= f.date_field :finish_date, placeholder: "dd/mm/yyyy" %>
 
       <%= link_to "Cancel", customer_work_schedules_path(@customer), class: "btn btn-large btn-primary btn-width-small" %>
