@@ -59,10 +59,10 @@ class CustomersController < ApplicationController
 	    end
 	end
 
-	def download
-		@customer = Customer.all
-		send_file '/customer_report.pdf', :type=>"application/pdf" 
-	end
+	#def download
+	#	@customer = Customer.all
+	#	send_file '/customer_report.pdf', :type=>"application/pdf" 
+	#end
 
 	def destroy 
 		@customer = Customer.find(params[:id])

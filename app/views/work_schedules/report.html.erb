@@ -1,0 +1,33 @@
+<p>
+	<div style= "padding-top:1em; padding-bottom:1em; padding-right:1em; padding-left:1em;">
+	    <div style="border: 1px solid #999;  height: auto; width: auto; float: center; padding: 2em; margin: 0.25em 0.25em 0.25em 0;">
+	    	<h1 align="center">SCHEDULE FOR RCC DESIGN WORK</h1></br>
+			<b>
+				Project: Desadla Bunglow project</br>
+				Location: Viman Nagar, Pune</br>
+				Architect: Sunil Patil & Associates</br>
+				RCC Consultants:Technocracy Consultants</br>
+			</b>
+			</br></br>
+
+			<TABLE border="1" width="100%" style="border-collapse:collapse;" cellpadding="4" cellspacing="0.25em" >
+				<TR>
+					<TD width="10%">Sr.No</TD>
+					<TD width="50%">Task Work</TD>
+					<TD width="10%">Duration</TD>
+					<TD width="15%">Start</TD>
+					<TD width="15%">Finish</TD>
+				</TR>
+				<% @customer.work_schedules.each do |c| %>
+			    <tr>
+				    <td><%= c.id %></td>
+				    <td><%= c.task_work %></td>
+				    <td><%= pluralize(c.duration, 'Day') %></td>
+				    <td><%= c.start_date %></td>
+				    <td><%= c.finish_date %></td>
+			    </tr>
+		    <% end %>
+			</TABLE>
+	    </div>
+    </div>
+</p>

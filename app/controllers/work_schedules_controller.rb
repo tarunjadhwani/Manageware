@@ -1,5 +1,6 @@
 class WorkSchedulesController < ApplicationController
 	before_filter :get_customer, :except => [:edit, :update]
+	layout "otherlayout", only: :report
 
 	def new
 		@work_schedule = WorkSchedule.new
@@ -31,6 +32,20 @@ class WorkSchedulesController < ApplicationController
 
 	def index
 		@work_schedules = @customer.work_schedules.all
+	end
+
+	def report
+		@work_schedules = @customer.work_schedules.all
+		respond_to do |format|
+	        format.html
+	        format.pdf do
+	          render :pdf => "Work Schedule Report",
+	          :template => "/work_schedules/report.html.erb",
+	          :disposition => "attachment",
+	          :filename => "WorkSchedule Report"
+	        #  :save_to_file => Rails.root.join('pdfs', "#{@formdetail.id}.pdf")
+	        end
+	    end
 	end
 
 private
